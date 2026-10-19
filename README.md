@@ -17,8 +17,12 @@ A high-performance multi-view image composer with configurable text overlays and
 ```bash
 git clone https://github.com/contoroinc/multi_view_composer.git
 cd multi_view_composer/
-pip install ./
+pip install './[opencv]'
 ```
+
+OpenCV is not installed by default. The `opencv` extra pulls in `opencv-python`;
+leave it out when the environment already provides `cv2`, for example through
+`opencv-contrib-python` or a system build.
 
 ## Quick Start
 
