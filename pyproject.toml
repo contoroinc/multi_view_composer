@@ -4,17 +4,20 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "multi_view_composer"
-version = "4.0.0"
+version = "5.0.0"
 description = "High-performance multi-view image composer with configurable text overlays and flexible YAML-based layouts"
 requires-python = ">=3.8"
+# OpenCV is required but not named here: it comes as one of several wheels
+# (opencv-python, opencv-contrib-python, headless variants, or a system build)
+# that all provide cv2 and conflict with each other, so the consumer picks one.
 dependencies = [
     "numpy",
-    "opencv-python",
     "pyyaml",
 ]
 
 [project.optional-dependencies]
-dev = ["pytest"]
+opencv = ["opencv-python"]
+dev = ["pytest", "opencv-python"]
 
 [tool.setuptools.packages.find]
 include = ["multi_view_composer*"]
